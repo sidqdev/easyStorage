@@ -5,6 +5,8 @@ import (
 	"main/app"
 	"main/config"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 func Upload(w http.ResponseWriter, r *http.Request) {
@@ -28,7 +30,9 @@ func Upload(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetFile(w http.ResponseWriter, r *http.Request) {
-	fileID := r.URL.Query().Get("fileID")
+	vars := mux.Vars(r)
+	fileID := vars["fileID"]
+	// fileID := r.URL.Query().Get("fileID")
 	if fileID == "" {
 		http.Error(w, "no file id in params", http.StatusNotFound)
 		return
