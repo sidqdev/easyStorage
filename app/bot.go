@@ -32,7 +32,7 @@ func (b *Bot) getFileEndpoint(filePath string) string {
 
 func (b *Bot) SendFile(fileName string, file io.Reader) (string, string, error) { // token, fileid
 	b.mu.Lock()
-	time.Sleep(time.Millisecond * 30)
+	time.Sleep(time.Millisecond * time.Duration(config.SendFrameDelay))
 	b.mu.Unlock()
 	fileID, err := SendHttpFormToGetFileID(b.getSendFileEndpoint(),
 		"POST",

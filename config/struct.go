@@ -11,4 +11,5 @@ type Config struct {
 	SplitFileLength     int    `json:"split_file_length"`
 	MaxUploadFileLength int    `json:"max_upload_file_length"`
 	Host                string `json:"host"`
+	SendFrameDelay      int    `json:"send_frame_delay"`
 }
