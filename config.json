@@ -3,6 +3,14 @@
         {
             "token": "5105591629:AAFtTj5py1dcBHcTSumYaXW8TwOXerZO47M",
             "channel_id": -1001500447847
+        },
+        {
+            "token": "5368122047:AAECdNAsU8T-9uDn5RzYMdMUON7dlDGVD5I",
+            "channel_id": -1001500447847
+        },
+        {
+            "token": "5046504607:AAGKoNeLFxjASBBmPQoaH9zKxjYNGQd1IHY",
+            "channel_id": -1001500447847
         }
     ],
     "storage_directory": "files",
