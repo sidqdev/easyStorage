@@ -8,6 +8,6 @@
     "storage_directory": "files",
     "split_file_length": 20971520,
     "max_upload_file_length": -1,
-    "host": "0.0.0.0:1000",
+    "host": "0.0.0.0:8070",
     "send_frame_delay": 35
 }
