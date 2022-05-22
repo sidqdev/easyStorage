@@ -3,11 +3,14 @@ package main
 import (
 	"fmt"
 	"main/app"
+	"main/config"
 	"net/http"
 )
 
 func Upload(w http.ResponseWriter, r *http.Request) {
-	// r.ParseMultipartForm(32 << 20) // limit your max input length!
+	if config.MaxUploadFileLength != -1 {
+		r.ParseMultipartForm(int64(config.MaxUploadFileLength))
+	}
 	file, fileHeader, err := r.FormFile("file")
 	if err != nil {
 		http.Error(w, "cant read file", http.StatusInternalServerError)
