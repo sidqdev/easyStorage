@@ -1,0 +1,10 @@
+{
+    "bots": [
+        {
+            "token": "5105591629:AAFtTj5py1dcBHcTSumYaXW8TwOXerZO47M",
+            "channel_id": -1001500447847
+        }
+    ],
+    "storage_directory": "files",
+    "max_file_length": 20971520 
+}
