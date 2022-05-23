@@ -65,7 +65,9 @@ func (f *File) join() {
 }
 
 func (f *File) Send() error {
-	f.Hash = hex.Dump(md5.New().Sum(f.File))
+	md5Hash := md5.New()
+	md5Hash.Write(f.File)
+	f.Hash = hex.EncodeToString(md5Hash.Sum(nil))
 	f.generateFileID()
 	f.split()
 
@@ -99,7 +101,9 @@ func (f *File) Get() error {
 	}
 
 	f.join()
-	if f.Hash != hex.Dump(md5.New().Sum(f.File)) {
+	md5Hash := md5.New()
+	md5Hash.Write(f.File)
+	if f.Hash != hex.EncodeToString(md5Hash.Sum(nil)) {
 		return errors.New("differetn file hashs")
 	}
 	return nil
