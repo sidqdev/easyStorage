@@ -35,14 +35,14 @@ API for save your files on telegram servers
 
 ### Fast run
 
-```git
+```bash
 git clone https://github.com/sidqdev/easyStorage
 cd easyStorage
 go run .
 ```
 
 ### Configure
-```
+```json
 {
     "bots": [
         {
@@ -56,7 +56,8 @@ go run .
     "host": "0.0.0.0:8070",
     "send_frame_delay": 35
 }
-
+```
+```
 bots - list of bot token and chat\channel id, which bot can send message
 storage_directory - directory where saved file data
 split_file_length - 20MB limit of telegram file to send
