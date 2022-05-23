@@ -3,13 +3,14 @@ package app
 import (
 	"bytes"
 	"crypto/md5"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
 	"os"
 
-	"main/config"
+	"easyStorage/config"
 
 	"github.com/google/uuid"
 )
@@ -64,7 +65,7 @@ func (f *File) join() {
 }
 
 func (f *File) Send() error {
-	f.Hash = string(md5.New().Sum(f.File))
+	f.Hash = hex.Dump(md5.New().Sum(f.File))
 	f.generateFileID()
 	f.split()
 
@@ -98,7 +99,7 @@ func (f *File) Get() error {
 	}
 
 	f.join()
-	if f.Hash != string(md5.New().Sum(f.File)) {
+	if f.Hash != hex.Dump(md5.New().Sum(f.File)) {
 		return errors.New("differetn file hashs")
 	}
 	return nil

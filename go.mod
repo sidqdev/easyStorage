@@ -1,4 +1,4 @@
-module main
+module easyStorage
 
 go 1.18
 

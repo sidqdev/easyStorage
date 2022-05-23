@@ -1,9 +1,9 @@
 package main
 
 import (
+	"easyStorage/app"
+	"easyStorage/config"
 	"log"
-	"main/app"
-	"main/config"
 	"net/http"
 
 	"github.com/gorilla/mux"

@@ -1,9 +1,10 @@
 package main
 
 import (
+	"easyStorage/app"
+	"easyStorage/config"
 	"fmt"
-	"main/app"
-	"main/config"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -15,6 +16,7 @@ func Upload(w http.ResponseWriter, r *http.Request) {
 	}
 	file, fileHeader, err := r.FormFile("file")
 	if err != nil {
+		log.Println(err)
 		http.Error(w, "cant read file", http.StatusInternalServerError)
 		return
 	}
@@ -23,6 +25,7 @@ func Upload(w http.ResponseWriter, r *http.Request) {
 	telegramFile.ReadFromIO(file)
 	err = telegramFile.Send()
 	if err != nil {
+		log.Println(err)
 		http.Error(w, "cant send file to server", http.StatusInternalServerError)
 		return
 	}
@@ -40,6 +43,7 @@ func GetFile(w http.ResponseWriter, r *http.Request) {
 
 	file, err := app.GetFile(fileID)
 	if err != nil {
+		log.Println(err)
 		http.Error(w, "cant get file", http.StatusInternalServerError)
 		return
 	}

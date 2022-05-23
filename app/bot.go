@@ -1,11 +1,12 @@
 package app
 
 import (
+	"easyStorage/config"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
-	"main/config"
+	"log"
 	"net/http"
 	"strconv"
 	"sync"
@@ -71,6 +72,9 @@ type Bots struct {
 }
 
 func (b *Bots) Load(bots []config.Bot) {
+	if len(bots) == 0 {
+		log.Panic("bots were not loaded")
+	}
 	for _, bot := range bots {
 		b.Bots = append(b.Bots, Bot{
 			Token:     bot.Token,
