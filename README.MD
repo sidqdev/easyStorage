@@ -8,7 +8,7 @@ API for save your files on telegram servers
 
 #### Upload file
 
-```http
+```
   POST /upload
 ```
 
@@ -22,7 +22,7 @@ API for save your files on telegram servers
 
 #### Get file
 
-```http
+```
   GET /get/{fileID}
 ```
 
@@ -42,7 +42,7 @@ go run .
 ```
 
 ### Configure
-```json
+```
 {
     "bots": [
         {
