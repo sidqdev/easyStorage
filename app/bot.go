@@ -48,15 +48,14 @@ func (b *Bot) GetFile(fileID string) (io.Reader, error) {
 	if err != nil {
 		return nil, err
 	}
-	type files struct {
-		FilePath string `json:"file_path"`
+
+	var p struct {
+		Result struct {
+			FilePath string `json:"file_path"`
+		} `json:"result"`
 	}
-	type parse struct {
-		Result files `json:"result"`
-	}
-	p := parse{}
-	err = json.NewDecoder(res.Body).Decode(&p)
-	if err != nil {
+
+	if err = json.NewDecoder(res.Body).Decode(&p); err != nil {
 		return nil, err
 	}
 	if p.Result.FilePath == "" {

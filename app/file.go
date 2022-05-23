@@ -37,11 +37,9 @@ func (f *File) split() {
 	f.SplittedFile = []FileFrame{}
 	frameIndex := 0
 	for i := 0; i < len(f.File); i += config.SplitFileLength {
-		c := 0
+		c := (i + config.SplitFileLength)
 		if (i + config.SplitFileLength) > len(f.File) {
 			c = len(f.File)
-		} else {
-			c = (i + config.SplitFileLength)
 		}
 		f.SplittedFile = append(f.SplittedFile,
 			FileFrame{

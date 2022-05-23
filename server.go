@@ -23,8 +23,7 @@ func Upload(w http.ResponseWriter, r *http.Request) {
 	defer file.Close()
 	telegramFile := app.File{FileName: fileHeader.Filename}
 	telegramFile.ReadFromIO(file)
-	err = telegramFile.Send()
-	if err != nil {
+	if err = telegramFile.Send(); err != nil {
 		log.Println(err)
 		http.Error(w, "cant send file to server", http.StatusInternalServerError)
 		return
@@ -36,7 +35,7 @@ func GetFile(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	fileID := vars["fileID"]
 	// fileID := r.URL.Query().Get("fileID")
-	if fileID == "" {
+	if len(fileID) == 0 {
 		http.Error(w, "no file id in params", http.StatusNotFound)
 		return
 	}

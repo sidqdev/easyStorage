@@ -24,18 +24,6 @@ type FileData struct {
 	File     io.Reader
 }
 
-type result struct {
-	Message message `json:"result"`
-	Ok      bool    `json:"ok"`
-}
-type message struct {
-	Document document `json:"document"`
-}
-
-type document struct {
-	FileID string `json:"file_id"`
-}
-
 func SendHttpFormToGetFileID(endpoint, method string, data []ValueData, files []FileData) (string, error) {
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
@@ -60,7 +48,15 @@ func SendHttpFormToGetFileID(endpoint, method string, data []ValueData, files []
 		return "", err
 	}
 
-	msg := result{}
+	var msg struct {
+		Message struct {
+			Document struct {
+				FileID string `json:"file_id"`
+			} `json:"document"`
+		} `json:"result"`
+		Ok bool `json:"ok"`
+	}
+
 	err = json.NewDecoder(res.Body).Decode(&msg)
 	// err = json.Unmarshal(b.Bytes(), &msg)
 	if err != nil {
