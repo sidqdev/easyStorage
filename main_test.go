@@ -49,15 +49,3 @@ func TestLightFile(t *testing.T) {
 	fileUpload(initialBytes, t)
 	t.Log("ok")
 }
-
-// func TestLargeFile(t *testing.T) {
-// 	err := config.Load()
-// 	if err != nil {
-// 		t.Log(err)
-// 	}
-// 	app.BotsManager.Load(config.Bots)
-
-// 	initialBytes := make([]byte, 10*1024*1024)
-// 	rand.Read(initialBytes)
-// 	fileUpload(initialBytes, t)
-// }
