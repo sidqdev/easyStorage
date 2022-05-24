@@ -31,6 +31,24 @@ API for save your files on telegram servers
     Code: 404, Content: error(file not found)
     Code: 500, Content: error
 
+#### Get file info
+
+```
+  GET /getInfo/{fileID}
+```
+
+##### Response
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `filename` | `string` | Name of file from form |
+| :-------- | :------- | :------------------------- |
+| `fileID` | `string` | generated file id |
+| :-------- | :------- | :------------------------- |
+| `hash` | `string` | md5 hesh hex of file |
+| :-------- | :------- | :------------------------- |
+| `size` | `int` | size of file in bytes |
+
 ## Documentation
 
 ### Fast run
