@@ -8,14 +8,14 @@ import (
 )
 
 func fileUpload(initialBytes []byte, t *testing.T) {
-	file := app.File{FileName: "File", File: initialBytes}
+	file := app.File{Name: "File", File: initialBytes}
 	err := file.Send()
 	if err != nil {
 		t.Error(err)
 		return
 	}
 
-	fileID := file.FileID
+	fileID := file.ID
 
 	gotFile, err := app.GetFile(fileID)
 	if err != nil {

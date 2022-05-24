@@ -18,6 +18,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/get/{fileID}", GetFile).Methods("GET")
+	router.HandleFunc("/getInfo/{fileID}", GetFileInfo).Methods("GET")
 	router.HandleFunc("/upload", Upload).Methods("POST")
 
 	http.Handle("/", router)
