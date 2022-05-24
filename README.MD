@@ -42,11 +42,8 @@ API for save your files on telegram servers
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `filename` | `string` | Name of file from form |
-| :-------- | :------- | :------------------------- |
 | `fileID` | `string` | generated file id |
-| :-------- | :------- | :------------------------- |
 | `hash` | `string` | md5 hesh hex of file |
-| :-------- | :------- | :------------------------- |
 | `size` | `int` | size of file in bytes |
 
 ## Documentation
