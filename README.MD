@@ -63,5 +63,5 @@ storage_directory - directory where saved file data
 split_file_length - 20MB limit of telegram file to send
 max_upload_file_length - max file length upload to server(-1 - no limit)
 host - host and port of server
-send_frame_delay - delay between send file to current bot(telegram limit 30 notifications in 1 second)
+send_frame_delay - delay between send file to current bot(telegram limit 30 notifications per second)
 ```
