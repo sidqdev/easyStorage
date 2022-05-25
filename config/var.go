@@ -3,8 +3,8 @@ package config
 var (
 	Bots = []Bot{
 		{
-			Token:     "5105591629:AAFtTj5py1dcBHcTSumYaXW8TwOXerZO47M",
-			ChannelID: -1001500447847,
+			Token:     "",
+			ChannelID: 0,
 		},
 	}
 	SplitFileLength     = 20 * 1024 * 1024
