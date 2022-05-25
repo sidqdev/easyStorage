@@ -12,4 +12,6 @@ type Config struct {
 	MaxUploadFileLength int    `json:"max_upload_file_length"`
 	Host                string `json:"host"`
 	SendFrameDelay      int    `json:"send_frame_delay"`
+	NgrokApiKey         string `json:"ngrok_api_key"`
+	UseNgrok            int    `json:"use_ngrok_link"`
 }

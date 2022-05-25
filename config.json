@@ -17,5 +17,8 @@
     "split_file_length": 20971520,
     "max_upload_file_length": -1,
     "host": "0.0.0.0:8070",
-    "send_frame_delay": 35
+    "send_frame_delay": 35,
+    
+    "ngrok_api_key": "29eDKHC8I87w9WZDSbEn23WAIMG_68w83jusd2Rf32M6VARe6",
+    "use_ngrok_link": 1
 }

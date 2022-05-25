@@ -22,6 +22,7 @@ func Load() error {
 	MaxUploadFileLength = conf.MaxUploadFileLength
 	Host = conf.Host
 	StorageDirectory = conf.StorageDirectory
-
+	NgrokApiKey = conf.NgrokApiKey
+	UseNgrok = conf.UseNgrok != 0
 	return nil
 }

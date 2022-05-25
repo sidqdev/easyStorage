@@ -16,10 +16,11 @@ import (
 )
 
 type FileInfo struct {
-	Name string `json:"filename"`
-	ID   string `json:"fileID"`
-	Hash string `json:"hash"`
-	Size int    `json:"size"`
+	Name      string `json:"filename"`
+	ID        string `json:"fileID"`
+	Hash      string `json:"hash"`
+	Size      int    `json:"size"`
+	PublicURL string `json:"publicURL"`
 }
 
 type File struct {

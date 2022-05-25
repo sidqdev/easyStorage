@@ -3,6 +3,7 @@ package main
 import (
 	"easyStorage/app"
 	"easyStorage/config"
+	ngrokCore "easyStorage/ngrok"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -58,6 +59,16 @@ func GetFileInfo(w http.ResponseWriter, r *http.Request) {
 	}
 
 	file, err := app.GetFileInfo(fileID)
+	link := "ngrok settings are turn off"
+	if config.UseNgrok {
+		endpoint, err := ngrokCore.GetNgrokEndpoint()
+		if err != nil {
+			link = "can not generate link"
+		} else {
+			link = fmt.Sprintf("%s/get/%s", endpoint, fileID)
+		}
+	}
+	file.PublicURL = link
 	if err != nil {
 		log.Println(err)
 		http.Error(w, "cant get file info", http.StatusInternalServerError)
