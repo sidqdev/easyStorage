@@ -45,7 +45,7 @@ API for save your files on telegram servers
 | `fileID` | `string` | generated file id |
 | `hash` | `string` | md5 hesh hex of file |
 | `size` | `int` | size of file in bytes |
-
+| `publicURL` | `string` | ngrok link to file |
 ## Documentation
 
 ### Fast run
@@ -61,16 +61,20 @@ go run .
 {
     "bots": [
         {
-            "token": "5046504607:AAGKoNeLFxjASBBmPQoaH9zKxjYNGQd1IHY",
-            "channel_id": -1001500447847
+            "token": "",
+            "channel_id": 0
         }
     ],
     "storage_directory": "files",
     "split_file_length": 20971520,
     "max_upload_file_length": -1,
     "host": "0.0.0.0:8070",
-    "send_frame_delay": 35
+    "send_frame_delay": 35,
+    
+    "ngrok_api_key": "",
+    "use_ngrok_link": 0
 }
+
 ```
 ```
 bots - list of bot token and chat\channel id, which bot can send message
@@ -79,4 +83,6 @@ split_file_length - 20MB limit of telegram file to send
 max_upload_file_length - max file length upload to server(-1 - no limit)
 host - host and port of server
 send_frame_delay - delay between send file to current bot(telegram limit 30 notifications per second)
+ngrok_api_key - your ngrok api key
+use_ngrok_link - 0 = False, 1 = True- turn off or on ngrok
 ```
